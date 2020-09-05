@@ -21,7 +21,7 @@
      <?php }
 
   ?>
- <h1>Matko mai Matka Mohan Matka</h1>
+ <h1>Welcome to Mohan Matka</h1>
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Username </label>
   <input type="text" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="" name="email">

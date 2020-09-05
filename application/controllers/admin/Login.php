@@ -46,4 +46,8 @@ class Login extends CI_Controller {
 		redirect('admin/login');
 	}
 
+public function userlogin(){
+	
+}			
+
 }

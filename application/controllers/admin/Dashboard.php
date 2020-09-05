@@ -7,7 +7,10 @@ class Dashboard extends CI_Controller {
     public function index()
 	{
 		if(isset($_SESSION['user_id'])){
-			$this->load->view('adminpanel/dashboard');
+			$data = array(
+				'title'=>'Dashboard'
+			);
+			$this->load->view('adminpanel/dashboard',$data);
 		}
 		else{
 			redirect('admin/login');
@@ -39,7 +42,7 @@ class Dashboard extends CI_Controller {
 			);
 
 			$result = $this->db->insert('users', $data);
-			$this->set_flashdata('item','Data inserted successfully');
+			$this->session->set_flashdata('item','User Created Successfully');
 			$this->load->view('adminpanel/dashboard');
 		
 		}
@@ -50,7 +53,7 @@ class Dashboard extends CI_Controller {
 
 		$query = $this->db->query("SELECT `userid` FROM `users` WHERE `user_name`= '$str'" );
 		if($query->num_rows()){
-			$this->form_validation->set_message('username_check', 'The {field} is already selected please use different username');
+			$this->form_validation->set_message('username_check', 'The {field} you chose already exists please use different username');
                         return FALSE;
 		}
 		else {

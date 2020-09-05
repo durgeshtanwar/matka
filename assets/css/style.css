@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.wrap {
+    width:100%;
+    text-align:center;
+    padding:10px;
+    min-height:50px;
+    border-width:2px;
+    border-style:inset;
+    font-style: italic;
+}
+.text-head{
+    font-size:24px;
+}
+.yellow {
+    background:yellow;
+}
+.white{
+    background:white;
+}
+.green {
+    background: #00FF00;
+}
+.blue-text{
+    color:blue;
+}
+.pink {
+    background:#FFC0CB;
+}
+
+.chart{
+    width:100%;
+    text-align:center !important;
+    min-height:30px;
+    border-width:2px;
+    border-style:inset;
+    padding:10px;
+}

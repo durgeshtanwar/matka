@@ -1,15 +1,15 @@
 <?php
-$this->load->view('adminpanel/layout/header');
+$this->load->view('frontend/layout/header');
 ?>
 <?php
-  $this->load->view('adminpanel/layout/uppernav');
+  $this->load->view('frontend/layout/uppernav');
 ?>
 
 <div class="container-fluid">
   <div class="row">
 
     <?php
-    $this->load->view('adminpanel/layout/sidemenu');
+    $this->load->view('frontend/layout/sidemenu');
     ?>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -19,7 +19,7 @@ $this->load->view('adminpanel/layout/header');
        
    <div class="row">
       <div class="col-md-6">
-          <h2>Add New User </h2>
+          <h2>Add Matka Rates </h2>
          <?php 
          if(validation_errors()!= FALSE){?>
             <div class="alert alert-warning" role="alert">
@@ -33,35 +33,30 @@ $this->load->view('adminpanel/layout/header');
          <?php }
          ;
          ?>
-
-          <form method="post" action="<?php echo base_url().'admin/dashboard/newUser' ?>">  
-      <div class="form-group">
-       <label for="exampleInputEmail1">Username</label>
-         <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
-          
+          <?php
+          if(isset($query)){
+            foreach ($query->result() as $row): 
+              $value1 = $row->morning;
+             endforeach;
+          }
+            ?>
+        
+          <form method="post" action="<?php echo base_url().'front/newMatkaRate' ?>">  
+            <div class="form-group">
+              <label for="exampleInputEmail1">Value</label>
+               <input type="text" class="form-control" id="exampleInputEmail1" value=<?php echo isset($value1)?$value1:" "; ?> name="morning" aria-describedby="emailHelp">
+           </div>
+                
+          <div class="form-group">
+         <label for="exampleFormControlSelect1">Start Time</label>
+         <input type="time" class="form-control" name="start_time"   id="time">
       </div>
-          <div class="form-group">
-           <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-          </div>
-  <div class="form-group">
-    <label>Address</label>
-    <textarea  class="form-control" id="exampleCheck1" name="address"></textarea>
+
+     <div class="form-group">
+       <label for="exampleFormControlSelect1">End Time</label>
+       <input type="time" class="form-control" name="end_time"   id="time1">
     </div>
-         <div class="form-group">
-           <label for="exampleInputPassword1">Phone</label>
-            <input type="text" class="form-control" name="phone"   id="phone">
-          </div>
-
-          <div class="form-group">
-    <label for="exampleFormControlSelect1">Status</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="status">
-      <option value="active">Active</option>
-      <option value="deactivate">Deactivate</option>
-      
-    </select>
-  </div>
-
+   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
    
