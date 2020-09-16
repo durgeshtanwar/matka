@@ -39,3 +39,20 @@
     border-style:inset;
     padding:10px;
 }
+.refresh-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.refresh-btn {
+    border: 2px solid #ff006c;
+    background-color: #ff006c;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 8px 0;
+    box-shadow: 0px 0px 1px #000000d6;
+    font-size: 12px;
+    margin: 2px 0 -1px;
+    display: inline-block;
+    transition: all .3s;
+}

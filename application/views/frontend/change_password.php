@@ -14,12 +14,12 @@ $this->load->view('frontend/layout/header');
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Change Password</h1>
      </div>
        
    <div class="row">
       <div class="col-md-6">
-          <h2>Add Matka Rates </h2>
+          <h2> Change Password </h2>
          <?php 
          if(validation_errors()!= FALSE){?>
             <div class="alert alert-warning" role="alert">
@@ -31,37 +31,26 @@ $this->load->view('frontend/layout/header');
          <?php echo $this->session->flashdata('item') ?>
             </div>
          <?php }
-         ;
+         
          ?>
           <?php
-          if(isset($query)){
-            foreach ($query->result() as $row): 
-              $value1 = $row->morning;
-              $start = $row->start_time;
-              $end = $row->end_time;
-             endforeach;
-          }
-          echo $start;
-          echo $end;
+         
             ?>
-            
         
-          <form method="post" action="<?php echo base_url().'front/newMatkaRate' ?>" >  
+          <form method="post" action="<?php echo base_url().'front/newMatkaRate' ?>">  
             <div class="form-group">
-              <label for="exampleInputEmail1">Value</label>
-               <input type="text" name="morning" class="form-control" id="exampleInputEmail1" value="<?php echo isset($value1)?$value1:' ' ; ?>"  aria-describedby="emailHelp">
+              <label for="exampleInputEmail1">current Password</label>
+               <input type="password" class="form-control" id="exampleInputEmail1" name="morning" aria-describedby="emailHelp">
            </div>
                 
           <div class="form-group">
          <label for="exampleFormControlSelect1">Start Time</label>
-         <input type="text" class="form-control" name="start_time" value='<?php echo isset($start)?$start:" "; ?>'  id="time">
-         <small> format is 12:00 AM</small> 
+         <input type="text" class="form-control" name="start_time"   id="time">
       </div>
 
      <div class="form-group">
        <label for="exampleFormControlSelect1">End Time</label>
-       <input type="text" class="form-control" name="end_time" value='<?php echo isset($end)?$end:" "; ?>'    id="time1">
-       <small> format is 1:00 AM</small> 
+       <input type="time" class="form-control" name="end_time"   id="time1">
     </div>
    
   <button type="submit" class="btn btn-primary">Submit</button>

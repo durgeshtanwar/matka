@@ -72,7 +72,7 @@ public function newMatkaRate(){
 	if ($this->form_validation->run() == FALSE)
 	{
 
-		$this->load->view('userdashboard');
+		$this->load->view('frontend/userdashboard');
 	}
 	else {
 		$userid = $this->session->userdata['userid'];
@@ -100,8 +100,6 @@ public function newMatkaRate(){
 	
 	public function do_upload()
 	{
-
-		
 
 			$config['upload_path']          = realpath(APPPATH . '../uploads');
 			$config['allowed_types']        = 'gif|jpg|png|pdf';
